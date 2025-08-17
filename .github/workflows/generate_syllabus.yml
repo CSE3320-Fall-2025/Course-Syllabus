@@ -19,32 +19,36 @@ jobs:
       
       - name: Compile LaTeX document 002
         id: compile-latex-document-002
-        uses: thomas-chauvet/latex2pdf-action@1.1.0
+        uses: xu-cheng/latex-action@v3
         with:
-          output_dir: PDF
-          main_latex_file: source/002/Section_002_Fall_2025.tex
-          ctan_packages: moderncv colortbl fontawesome lua-uni-algos fullpage preprint longtable booktabs array
+          root_file: source/002/Section_002_Fall_2025.tex
+          working_directory: ./
+          extra_packages: moderncv colortbl fontawesome fullpage preprint longtable booktabs array
+          latexmk_shell_escape: true
+          post_compile: "mkdir -p PDF && mv source/002/Section_002_Fall_2025.pdf PDF/"
          
       - name: Upload PDF to the workflow tab
         id: upload-workflow-002
         uses: actions/upload-artifact@v4
         with:
-          name: PDF
+          name: PDF-002
           path: PDF/Section_002_Fall_2025.pdf
           
       - name: Compile LaTeX document 003
         id: compile-latex-document-003
-        uses: thomas-chauvet/latex2pdf-action@1.1.0
+        uses: xu-cheng/latex-action@v3
         with:
-          output_dir: PDF
-          main_latex_file: source/003/Section_003_Fall_2025.tex
-          ctan_packages: moderncv colortbl fontawesome lua-uni-algos fullpage preprint longtable booktabs array
+          root_file: source/003/Section_003_Fall_2025.tex
+          working_directory: ./
+          extra_packages: moderncv colortbl fontawesome fullpage preprint longtable booktabs array
+          latexmk_shell_escape: true
+          post_compile: "mv source/003/Section_003_Fall_2025.pdf PDF/"
           
       - name: Upload PDF to the workflow tab
         id: upload-workflow-003
         uses: actions/upload-artifact@v4
         with:
-          name: PDF
+          name: PDF-003
           path: PDF/Section_003_Fall_2025.pdf
           
       - name: Deploy back to gh
