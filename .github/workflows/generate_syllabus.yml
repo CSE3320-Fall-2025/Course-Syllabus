@@ -25,7 +25,7 @@ jobs:
           working_directory: ./
           extra_packages: moderncv colortbl fontawesome fullpage preprint longtable booktabs array
           latexmk_shell_escape: true
-          post_compile: "mkdir -p PDF && mv source/002/Section_002_Fall_2025.pdf PDF/"
+          post_compile: "mkdir -p PDF && mv Section_002_Fall_2025.pdf PDF/"
          
       - name: Upload PDF to the workflow tab
         id: upload-workflow-002
@@ -42,7 +42,7 @@ jobs:
           working_directory: ./
           extra_packages: moderncv colortbl fontawesome fullpage preprint longtable booktabs array
           latexmk_shell_escape: true
-          post_compile: "mv source/003/Section_003_Fall_2025.pdf PDF/"
+          post_compile: "mv Section_003_Fall_2025.pdf PDF/"
           
       - name: Upload PDF to the workflow tab
         id: upload-workflow-003
